@@ -1,0 +1,19 @@
+s = input('Height in m');
+v = input('Velocity in m/s');
+theta = input('Angle in degrees');
+ax = input('X-component of acceleration in m/s^2');
+ay = input('Y-component of acceleration in m/s^2');
+vox = v*cosd(theta);
+voy = v*sind(theta);
+if ay==0 
+    error('Vertical acceleration cannot be 0')
+end
+t = 0:100;
+a = (2*(s-(v.*t)))/t.^2;
+x = (vox.*t)+(0.5).*ax.*t.^2;
+y = (voy.*t)+(0.5).*ay.*t.^2 + s;
+plot(x,y,"r")
+xlabel('x axis')
+ylabel('y axis')
+title('Simulation of projectile motion')
+grid
